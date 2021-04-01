@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="btnSimple">Simple</string>
+    <string name="btnAdvanced">Advanced</string>
+    <string name="btnAbout">About</string>
+    <string name="btnClose">Exit</string>
+    <string name="labelName">Calculator</string>
+    <string name="btnCalcOpAC">AC</string>
+    <string name="btnCalcOpC">C/CE</string>
+    <string name="btnCalcOpSign">+/-</string>
+    <string name="btnCalc7">7</string>
+    <string name="btnCalc8">8</string>
+    <string name="btnCalc9">9</string>
+    <string name="btnCalcOpDiv">/</string>
+    <string name="btnCalc4">4</string>
+    <string name="btnCalc5">5</string>
+    <string name="btnCalc6">6</string>
+    <string name="btnCalcOpMul">*</string>
+    <string name="btnCalc1">1</string>
+    <string name="btnCalc2">2</string>
+    <string name="btnCalc3">3</string>
+    <string name="btnCalcOpSub">-</string>
+    <string name="btnCalc0">0</string>
+    <string name="btnCalcOpComma">.</string>
+    <string name="btnCalcOpEquals">=</string>
+    <string name="btnCalcOpAdd">+</string>
+    <string name="btnCalcOpSqrt">Sqrt</string>
+    <string name="btnCalcOpLn">Ln</string>
+    <string name="btnCalcOpTan">Tan</string>
+    <string name="btnCalcOpCos">Cos</string>
+    <string name="btnCalcOpSin">Sin</string>
+    <string name="btnCalcOpX2">X^2</string>
+    <string name="btnCalcOpXY">X^Y</string>
+    <string name="btnCalcOpLog">Log</string>
+</resources>

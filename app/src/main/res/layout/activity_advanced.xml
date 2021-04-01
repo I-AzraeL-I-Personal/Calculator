@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".AdvancedActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/fieldDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="none"
+            android:textAlignment="textEnd"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnCalcOpAC"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpAC" />
+
+                <Button
+                    android:id="@+id/btnCalcOpC"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="2"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpC" />
+
+                <Button
+                    android:id="@+id/btnCalcOpSign"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpSign" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnCalcOpSin"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpSin" />
+
+                <Button
+                    android:id="@+id/btnCalcOpCos"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpCos" />
+
+                <Button
+                    android:id="@+id/btnCalcOpTan"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpTan" />
+
+                <Button
+                    android:id="@+id/btnCalcOpLn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpLn" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnCalcOpSqrt"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpSqrt" />
+
+                <Button
+                    android:id="@+id/btnCalcOpX2"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpX2" />
+
+                <Button
+                    android:id="@+id/btnCalcOpXY"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpXY" />
+
+                <Button
+                    android:id="@+id/btnCalcOpLog"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpLog" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnCalc7"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc7" />
+
+                <Button
+                    android:id="@+id/btnCalc8"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc8" />
+
+                <Button
+                    android:id="@+id/btnCalc9"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc9" />
+
+                <Button
+                    android:id="@+id/btnCalcOpDiv"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpDiv" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnCalc4"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc4" />
+
+                <Button
+                    android:id="@+id/btnCalc5"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc5" />
+
+                <Button
+                    android:id="@+id/btnCalc6"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc6" />
+
+                <Button
+                    android:id="@+id/btnCalcOpMul"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpMul" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnCalc1"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc1" />
+
+                <Button
+                    android:id="@+id/btnCalc2"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc2" />
+
+                <Button
+                    android:id="@+id/btnCalc3"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc3" />
+
+                <Button
+                    android:id="@+id/btnCalcOpSub"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpSub" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btnCalc0"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalc0" />
+
+                <Button
+                    android:id="@+id/btnCalcOpComma"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpComma" />
+
+                <Button
+                    android:id="@+id/btnCalcOpEquals"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpEquals" />
+
+                <Button
+                    android:id="@+id/btnCalcOpAdd"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#222222"
+                    android:text="@string/btnCalcOpAdd" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
