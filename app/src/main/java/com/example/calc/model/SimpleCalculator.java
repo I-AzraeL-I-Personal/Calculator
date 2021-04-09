@@ -2,7 +2,6 @@ package com.example.calc.model;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Debug;
 import android.widget.TextView;
 import android.widget.Toast;
 

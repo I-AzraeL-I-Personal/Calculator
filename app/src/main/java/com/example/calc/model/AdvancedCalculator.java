@@ -3,10 +3,7 @@ package com.example.calc.model;
 import android.content.Context;
 import android.widget.TextView;
 
-import com.google.android.material.math.MathUtils;
-
 import java.math.BigDecimal;
-import java.math.MathContext;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
 
