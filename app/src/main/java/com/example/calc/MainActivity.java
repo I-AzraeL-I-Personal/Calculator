@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
                 .setMessage("Calculator\n" +
                         "Author: AzraeL\n\n" +
                         "This is a simple calculator.\n" +
-                        "Version: 1.0\n")
+                        "Version: 1.1\n")
                 .setPositiveButton("OK", null)
                 .create()
                 .show());

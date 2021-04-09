@@ -32,7 +32,7 @@
             android:gravity="center"
             android:text="@string/labelName"
             android:textColor="#FFFFFF"
-            android:textSize="35sp" />
+            android:textSize="@dimen/title_text_size" />
 
         <Button
             android:id="@+id/btnSimple"
@@ -45,7 +45,7 @@
             android:text="@string/btnSimple"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            android:textSize="@dimen/button_text_size" />
 
         <Button
             android:id="@+id/btnAdvanced"
@@ -58,7 +58,7 @@
             android:text="@string/btnAdvanced"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            android:textSize="@dimen/button_text_size" />
 
         <Button
             android:id="@+id/btnAbout"
@@ -71,7 +71,7 @@
             android:text="@string/btnAbout"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            android:textSize="@dimen/button_text_size" />
 
         <Button
             android:id="@+id/btnClose"
@@ -84,7 +84,7 @@
             android:text="@string/btnClose"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            android:textSize="@dimen/button_text_size" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

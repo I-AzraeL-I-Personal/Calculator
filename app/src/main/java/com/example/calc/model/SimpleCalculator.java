@@ -2,18 +2,21 @@ package com.example.calc.model;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Debug;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SimpleCalculator {
 
-    protected double operand1;
-    protected double operand2;
+    protected BigDecimal operand1 = new BigDecimal(0);
+    protected BigDecimal operand2 = new BigDecimal(0);
     protected final AtomicBoolean addFlag = new AtomicBoolean();
     protected final AtomicBoolean subFlag = new AtomicBoolean();
     protected final AtomicBoolean mulFlag = new AtomicBoolean();
@@ -21,6 +24,9 @@ public class SimpleCalculator {
     protected final AtomicBoolean powFlag = new AtomicBoolean();
     protected final AtomicBoolean clearFlag = new AtomicBoolean();
     protected final TextView display;
+    protected BigDecimal displayValue = new BigDecimal(0);
+    protected final MathContext globalMathContext = MathContext.DECIMAL128;
+    protected final int roundPrecision = 32;
     protected Context context;
 
     public SimpleCalculator(TextView display, Context context) {
@@ -34,8 +40,9 @@ public class SimpleCalculator {
     }
 
     public void restoreInstanceState(Bundle savedInstanceState) {
-        operand1 = savedInstanceState.getDouble("operand1", 0);
-        operand2 = savedInstanceState.getDouble("operand2", 0);
+        operand1 = new BigDecimal(savedInstanceState.getString("operand1", "0"));
+        operand2 = new BigDecimal(savedInstanceState.getString("operand2", "0"));
+        displayValue = new BigDecimal(savedInstanceState.getString("displayValue", "0"));
         addFlag.set(savedInstanceState.getBoolean("addFlag", false));
         subFlag.set(savedInstanceState.getBoolean("subFlag", false));
         mulFlag.set(savedInstanceState.getBoolean("mulFlag", false));
@@ -46,8 +53,9 @@ public class SimpleCalculator {
     }
 
     public void saveInstanceState(@NonNull Bundle outState) {
-        outState.putDouble("operand1", operand1);
-        outState.putDouble("operand2", operand2);
+        outState.putString("operand1", operand1.toPlainString());
+        outState.putString("operand2", operand2.toPlainString());
+        outState.putString("displayValue", displayValue.toPlainString());
         outState.putBoolean("addFlag", addFlag.get());
         outState.putBoolean("subFlag", subFlag.get());
         outState.putBoolean("mulFlag", mulFlag.get());
@@ -58,16 +66,17 @@ public class SimpleCalculator {
     }
 
     public void handleNumeral(int digit) {
-        if (display.getText().toString().equals("0") || clearFlag.compareAndSet(true, false)) {
+        if (displayValue.compareTo(BigDecimal.ZERO) == 0 || clearFlag.compareAndSet(true, false)) {
             display.setText("");
         }
         display.append(Integer.toString(digit));
+        displayValue = new BigDecimal(display.getText().toString());
     }
 
     public void handleBinaryOperation(Operator operator) {
         calculatePartialResult();
         if (!display.toString().isEmpty()) {
-            operand1 = Double.parseDouble(display.getText().toString());
+            operand1 = new BigDecimal(displayValue.toPlainString());
             clearFlag.set(true);
             switch (operator) {
                 case ADD:
@@ -92,23 +101,28 @@ public class SimpleCalculator {
     }
 
     public void handleEquals() {
-        operand2 = Double.parseDouble(display.getText().toString());
+        operand2 = new BigDecimal(displayValue.toPlainString());
 
         if (addFlag.compareAndSet(true, false)) {
-            display.setText(formatResult(operand1 + operand2));
+            displayValue = operand1.add(operand2);
+            display.setText(formatResult(displayValue));
         } else if (subFlag.compareAndSet(true, false)) {
-            display.setText(formatResult(operand1 - operand2));
+            displayValue = operand1.subtract(operand2);
+            display.setText(formatResult(displayValue));
         } else if (mulFlag.compareAndSet(true, false)) {
-            display.setText(formatResult(operand1 * operand2));
+            displayValue = operand1.multiply(operand2);
+            display.setText(formatResult(displayValue));
         } else if (divFlag.compareAndSet(true, false)) {
-            if (operand2 == 0) {
+            if (operand2.compareTo(BigDecimal.ZERO) == 0) {
                 showToast("Division by 0 is not allowed");
                 reset();
             } else {
-                display.setText(formatResult(operand1 / operand2));
+                displayValue = operand1.divide(operand2, globalMathContext);
+                display.setText(formatResult(displayValue));
             }
         } else if (powFlag.compareAndSet(true, false)) {
-            display.setText(formatResult(Math.pow(operand1, operand2)));
+            displayValue = operand1.pow(operand2.intValue(), globalMathContext);
+            display.setText(formatResult(displayValue));
         }
     }
 
@@ -116,20 +130,21 @@ public class SimpleCalculator {
         String text = display.getText().toString();
         if (!(text.contains(".") || text.isEmpty())) {
             display.append(".");
+            displayValue = new BigDecimal(display.getText().toString());
         }
     }
 
     public void handleSign() {
-        String text = display.getText().toString();
-        double number = Double.parseDouble(text);
         if (!clearFlag.get()) {
-            display.setText(formatResult(-number));
+            displayValue = displayValue.negate();
+            display.setText(formatResult(displayValue));
         }
     }
 
     public void handleClear() {
         if (!clearFlag.get()) {
-            display.setText("0");
+            displayValue = new BigDecimal(0);
+            display.setText(formatResult(displayValue));
         }
     }
 
@@ -140,15 +155,16 @@ public class SimpleCalculator {
     }
 
     public void reset() {
-        operand1 = 0;
-        operand2 = 0;
+        operand1 = new BigDecimal(0);
+        operand2 = new BigDecimal(0);
         addFlag.set(false);
         subFlag.set(false);
         mulFlag.set(false);
         divFlag.set(false);
         powFlag.set(false);
         clearFlag.set(false);
-        display.setText("0");
+        displayValue = new BigDecimal(0);
+        display.setText(formatResult(displayValue));
     }
 
     protected boolean isAnyBinaryOperatorSelected() {
@@ -161,8 +177,9 @@ public class SimpleCalculator {
         }
     }
 
-    protected String formatResult(double number) {
-        return BigDecimal.valueOf(number)
+    protected String formatResult(BigDecimal number) {
+        return number
+                .round(new MathContext(32, RoundingMode.HALF_EVEN))
                 .stripTrailingZeros()
                 .toPlainString();
     }
